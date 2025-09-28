@@ -1,4 +1,4 @@
-High-level summary — TA-client repository
+Summary — TA-client repository
 
 What it is
 - A small Next.js (App router) client application that provides a form for logging "distance" entries (date, distance, from/to places) and submitting them to a backend.
