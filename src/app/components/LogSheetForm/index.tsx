@@ -343,12 +343,16 @@ export default function LogSheetForm() {
   ]);
 
   const placeOptions = [
-    "Hyderabad",
-    "Medak",
-    "Mumbai",
-    "Bengaluru",
-    "Chennai",
-    "Delhi"
+    "Medchal",
+    "Athvelly Farm",
+    "Dabilpur Farm",
+    "Yellampet Plant",
+    "M.Pally Farm",
+    "City Office",
+    "Airport",
+    "Secundrabad Railway",
+    "GPR Mall",
+    "Kalakal Guest House"
   ];
 
   return (
