@@ -246,16 +246,6 @@ export default function LogSheetForm() {
                 token: ""
               }));
             }, 3000);
-          },
-          onError: () => {
-            setShowMFA(false);
-            setShowDialog(false);
-            setMessage({
-              type: "error",
-              text:
-                (error as any)?.response?.data?.message ??
-                "something went wrong"
-            });
           }
         }
       );
@@ -289,22 +279,13 @@ export default function LogSheetForm() {
                 text: "Failed to save file"
               });
             }
-          },
-          onError: () => {
-            setShowMFA(false);
-            setShowDialog(false);
-            setMessage({
-              type: "error",
-              text:
-                (excelError as any)?.response?.data?.message ??
-                "something went wrong"
-            });
           }
         }
       );
       setForm((prev) => ({ ...prev, token: "" }));
     }
     setShowMFA(false);
+    setShowDialog(false);
   };
 
   const handleShowMFA = () => {
@@ -323,21 +304,22 @@ export default function LogSheetForm() {
 
   useEffect(() => {
     if (isError) {
+      console.log(error)
       setMessage({
         type: "error",
-        text: (error as any)?.response?.data?.message ?? "something went wrong"
+        text: error?.response?.data?.message ?? "something went wrong"
       });
     }
     if (isExcelError) {
+      console.log(excelError)
       setMessage({
         type: "error",
-        text:
-          (excelError as any)?.response?.data?.message ?? "something went wrong"
+        text: excelError?.response?.data?.message ?? "something went wrong"
       });
     }
   }, [
-    (error as any)?.response?.data?.message,
-    (excelError as any)?.response?.data?.message,
+    error?.response?.data?.message,
+    excelError?.response?.data?.message,
     isError,
     isExcelError
   ]);
